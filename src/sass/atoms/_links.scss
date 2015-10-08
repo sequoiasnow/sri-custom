@@ -1,0 +1,18 @@
+a {
+    @include transition( all $timing__text );
+
+    text-decoration: underline;
+}
+
+a:visited {
+    color: $color__visited;
+}
+
+/**
+ * A tag without any styling impact.
+ */
+a.no-style {
+    font-size: inherit;
+    color: inherit;
+    font-family: inherit;
+}

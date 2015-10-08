@@ -1,0 +1,29 @@
+
+@charset 'utf-8';
+
+// Compass mixins
+@import "compass";
+
+@import "variables/all";
+@import "mixins/all";
+/**
+ * The layout for this project is based off of the principles of atomic web
+ * design, by Brad Frost.
+ *
+ * @see http://bradfrost.com/blog/post/atomic-web-design/
+ */
+
+// Individual atoms are specific tags.
+@import "atoms/all";
+
+// Molecules are a collection of tags, these are react.js componentes.
+@import "molecules/all";
+
+// Organisms are collections of tags, these are like the App sum.
+@import "organisms/all";
+
+// Templates are collections of organisms.
+@import "templates/all";
+
+// Pages are specific implementations of templates.
+@import "pages/all";
