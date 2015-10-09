@@ -6,9 +6,14 @@ var dataProps = function() {
             this.props[ propName ] = this.props.data[ propName ];
         }
     } else if ( typeof this.props.src !== 'undefined' ) {
-        this.props.data = getJson( this.props.src );
+
+        getJson( this.props.src, function( r ) {
+            this.props.data = r
+        }.bind( this ) );
 
         dataProps.call( this );
+    } else if ( typeof this.props.data === 'undefined' ) {
+        this.props.data = [];
     }
 };
 

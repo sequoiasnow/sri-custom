@@ -7,7 +7,7 @@ var App = React.createClass({
 
     render: function() {
         return (
-            <NavLink title="Test" link="test-link"></NavLink>
+            <NavBar src="/data/types/NavLink.json"></NavBar>
         )
     }
 });

@@ -31,14 +31,13 @@ gulp.task( 'watch', function() {
     gulp.watch( 'src/sass/**/*.scss', [ 'sass' ] );
 });
 
-gulp.task( 'server', function() {
+gulp.task( 'serve', function() {
   gulp.src('./')
     .pipe(webserver({
       livereload: true,
       directoryListing: true,
       open: true
     }));
-});
 });
 
 gulp.task( 'default', [ 'js' ] );

@@ -5,8 +5,16 @@ var getJSON = require( '../core/json' );
 
 var NavBar = React.createClass({
     componentDidMount: function() {
+        if ( typeof this.props.data === 'undefined' ) {
+            this.props.data = [];
+        }
+
         if ( typeof this.props.data === 'undefined' && typeof this.props.src !== 'undefined' ) {
-            this.props.data = getJSON( this.props.src );
+            getJSON( this.props.src, function( r ) {
+                this.props.data = r;
+
+                console.log( r );
+            }.bind( this ) );
         }
     },
 
@@ -23,9 +31,9 @@ var NavBar = React.createClass({
         return (
             <section id="nav-bar">
                 <ul className="nav-entries">
-                    {this.props.data.map(function(linkData, i) {
+                    {this.props.data.map(function( linkData, i ) {
                         return (
-                            <NavLink onClick={this.handleClick.bind(this, i)} data={linkData} key={i}></NavLink>
+                            <NavLink onClick={this.handleClick.bind( this, i )} data={linkData} key={i}></NavLink>
                         )
                     }, this )}
                 </ul>
