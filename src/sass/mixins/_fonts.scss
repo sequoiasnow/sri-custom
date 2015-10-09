@@ -1,0 +1,9 @@
+/**
+ * Heading font mixins will make the font of that element completly visible
+ * as a heading.
+ */
+@mixin font-heading {
+    font-family: $font__family-heading;
+    font-size: $font__size-heading;
+    font-weight: $font__weight-heading;
+}

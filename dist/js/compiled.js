@@ -21313,7 +21313,7 @@ var App = require( './react/App' );
 React.render( React.createElement(App, null),  document.getElementById( 'react-contianer' ) );
 
 
-}).call(this,require("7YKIPe"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_42fdb5ea.js","/")
+}).call(this,require("7YKIPe"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_ba9880b5.js","/")
 },{"./react/App":161,"7YKIPe":3,"buffer":2,"react":159}],161:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var React  = require( 'react' );
@@ -21347,11 +21347,11 @@ var NavBar = React.createClass({displayName: "NavBar",
             this.props.data = [];
         }
 
-        if ( typeof this.props.data === 'undefined' && typeof this.props.src !== 'undefined' ) {
+        if ( this.props.data.length == 0 && typeof this.props.src !== 'undefined' ) {
+
             getJSON( this.props.src, function( r ) {
                 this.props.data = r;
-
-                console.log( r );
+                this.forceUpdate();
             }.bind( this ) );
         }
     },
@@ -21366,15 +21366,31 @@ var NavBar = React.createClass({displayName: "NavBar",
     },
 
     render: function() {
+        var links = '';
+
+        if ( typeof this.props.data !== 'undefined' && this.props.data.length ) {
+            var links = this.props.data.map(function( linkData, i ) {
+                return (
+                    React.createElement(NavLink, {onClick: this.handleClick.bind( this, i), data: linkData, key: i})
+                )
+            }, this )
+        }
+
         return (
             React.createElement("section", {id: "nav-bar"}, 
-                React.createElement("ul", {className: "nav-entries"}
-                    
+                React.createElement("ul", {className: "nav-entries"}, 
+                    links
                 )
             )
         )
     }
 });
+
+// {this.props.data.map(function( linkData, i ) {
+//     return (
+//         <NavLink onClick={this.handleClick.bind( this, i )} data={linkData} key={i}></NavLink>
+//     )
+// }, this )}
 
 module.exports = NavBar;
 
@@ -21387,8 +21403,15 @@ var getData = require( '../core/data' );
 
 
 var NavLink = React.createClass({displayName: "NavLink",
-    componentDidMount: function() {
-        getData.call( this );
+    componentWillMount: function() {
+
+        if ( typeof this.props.data !== 'undefined' ) {
+            for ( var key in this.props.data ) {
+                if ( ! this.props.hasOwnProperty( key ) ) {
+                    this.props[ key ] = this.props.data[ key ];
+                }
+            }
+        }
 
         console.log( this.props );
     },
@@ -21443,13 +21466,15 @@ module.exports =  function( fileURL, callback ) {
     xobj.open('GET', fileURL, true);
 
     xobj.onreadystatechange = function () {
-        if (xobj.readyState == 4 && xobj.status == "200") {
+        if ( xobj.readyState == 4 && xobj.status == "200") {
 
-        // .open will NOT return a value but simply returns undefined in async mode so use a callback
-        callback( JSON.parse( xobj.responseText ) );
+            callback( JSON.parse( xobj.responseText ) );
 
+        } else if ( xobj.status != "200" ) {
+            console.log( 'Error in accessing ' + xobj.responseText + ' provided.' );
+            console.log( 'state: ' + xobj.readyState );
+            console.log( 'status: ' + xobj.status );
         }
-
     }
     xobj.send(null);
 };

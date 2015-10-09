@@ -40,4 +40,4 @@ gulp.task( 'serve', function() {
     }));
 });
 
-gulp.task( 'default', [ 'js' ] );
+gulp.task( 'default', [ 'js', 'sass' ] );

@@ -3,8 +3,15 @@ var getData = require( '../core/data' );
 
 
 var NavLink = React.createClass({
-    componentDidMount: function() {
-        getData.call( this );
+    componentWillMount: function() {
+
+        if ( typeof this.props.data !== 'undefined' ) {
+            for ( var key in this.props.data ) {
+                if ( ! this.props.hasOwnProperty( key ) ) {
+                    this.props[ key ] = this.props.data[ key ];
+                }
+            }
+        }
 
         console.log( this.props );
     },

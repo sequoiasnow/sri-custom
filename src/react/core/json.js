@@ -5,13 +5,15 @@ module.exports =  function( fileURL, callback ) {
     xobj.open('GET', fileURL, true);
 
     xobj.onreadystatechange = function () {
-        if (xobj.readyState == 4 && xobj.status == "200") {
+        if ( xobj.readyState == 4 && xobj.status == "200") {
 
-        // .open will NOT return a value but simply returns undefined in async mode so use a callback
-        callback( JSON.parse( xobj.responseText ) );
+            callback( JSON.parse( xobj.responseText ) );
 
+        } else if ( xobj.status != "200" ) {
+            console.log( 'Error in accessing ' + xobj.responseText + ' provided.' );
+            console.log( 'state: ' + xobj.readyState );
+            console.log( 'status: ' + xobj.status );
         }
-
     }
     xobj.send(null);
 };

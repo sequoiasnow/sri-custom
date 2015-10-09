@@ -9,11 +9,11 @@ var NavBar = React.createClass({
             this.props.data = [];
         }
 
-        if ( typeof this.props.data === 'undefined' && typeof this.props.src !== 'undefined' ) {
+        if ( this.props.data.length == 0 && typeof this.props.src !== 'undefined' ) {
+
             getJSON( this.props.src, function( r ) {
                 this.props.data = r;
-
-                console.log( r );
+                this.forceUpdate();
             }.bind( this ) );
         }
     },
@@ -28,18 +28,30 @@ var NavBar = React.createClass({
     },
 
     render: function() {
+        var links = '';
+
+        if ( typeof this.props.data !== 'undefined' && this.props.data.length ) {
+            var links = this.props.data.map(function( linkData, i ) {
+                return (
+                    <NavLink onClick={this.handleClick.bind( this, i )} data={linkData} key={i}></NavLink>
+                )
+            }, this )
+        }
+
         return (
             <section id="nav-bar">
                 <ul className="nav-entries">
-                    {this.props.data.map(function( linkData, i ) {
-                        return (
-                            <NavLink onClick={this.handleClick.bind( this, i )} data={linkData} key={i}></NavLink>
-                        )
-                    }, this )}
+                    {links}
                 </ul>
             </section>
         )
     }
 });
+
+// {this.props.data.map(function( linkData, i ) {
+//     return (
+//         <NavLink onClick={this.handleClick.bind( this, i )} data={linkData} key={i}></NavLink>
+//     )
+// }, this )}
 
 module.exports = NavBar;
