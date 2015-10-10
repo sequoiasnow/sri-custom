@@ -1,21 +1,23 @@
 var React   = require( 'react' );
-var NavLink = require( './NavLink' );
 var getJSON = require( '../core/json' );
 
 
 var NavBar = React.createClass({
+    // Set the initial state of data to an empty array, it iwll be loaded by ajax.
+    getInitialState: function() {
+        return { data: [] };
+    },
+
     componentDidMount: function() {
-        if ( typeof this.props.data === 'undefined' ) {
-            this.props.data = [];
-        }
+        // Load the data from a json file.
+        $.get( this.props.src, function( result ) {
 
-        if ( this.props.data.length == 0 && typeof this.props.src !== 'undefined' ) {
-
-            getJSON( this.props.src, function( r ) {
-                this.props.data = r;
-                this.forceUpdate();
-            }.bind( this ) );
-        }
+            if (this.isMounted()) {
+                this.setState({
+                    data: result
+                });
+            }
+        }.bind( this ) );
     },
 
     // Handle a click from the links, this often dispached to the page, rather than to the links themeselves.
@@ -28,30 +30,36 @@ var NavBar = React.createClass({
     },
 
     render: function() {
-        var links = '';
-
-        if ( typeof this.props.data !== 'undefined' && this.props.data.length ) {
-            var links = this.props.data.map(function( linkData, i ) {
-                return (
-                    <NavLink onClick={this.handleClick.bind( this, i )} data={linkData} key={i}></NavLink>
-                )
-            }, this )
-        }
-
         return (
             <section id="nav-bar">
                 <ul className="nav-entries">
-                    {links}
+                    { /* Include the mapped entreis of data */ }
+                    {this.state.data.map(function( linkData, i ) {
+                        return (
+                            <NavBar.NavLink onClick={this.handleClick.bind( this, i )} key={i} {...linkData} />
+                        )
+                    }, this )}
+
+                    { /* Any other custom links are given less priority */ }
+                    {this.props.children}
                 </ul>
             </section>
         )
     }
 });
 
-// {this.props.data.map(function( linkData, i ) {
-//     return (
-//         <NavLink onClick={this.handleClick.bind( this, i )} data={linkData} key={i}></NavLink>
-//     )
-// }, this )}
+/**
+ * Simply the container for a  single link of the nav bar types.
+ */
+NavBar.NavLink = React.createClass({
+    render: function() {
+        return (
+            <li className="nav-element">
+                <span className="title">{this.props.title}</span>
+            </li>
+        )
+    }
+});
+
 
 module.exports = NavBar;

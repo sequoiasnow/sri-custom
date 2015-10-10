@@ -21313,11 +21313,10 @@ var App = require( './react/App' );
 React.render( React.createElement(App, null),  document.getElementById( 'react-contianer' ) );
 
 
-}).call(this,require("7YKIPe"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_ba9880b5.js","/")
+}).call(this,require("7YKIPe"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_6674d92f.js","/")
 },{"./react/App":161,"7YKIPe":3,"buffer":2,"react":159}],161:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var React  = require( 'react' );
-var NavLink = require( './components/NavLink' )
 var NavBar = require( './components/NavBar' );
 
 var App = React.createClass({displayName: "App",
@@ -21334,26 +21333,28 @@ module.exports = App;
 
 
 }).call(this,require("7YKIPe"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/react/App.js","/react")
-},{"./components/NavBar":162,"./components/NavLink":163,"7YKIPe":3,"buffer":2,"react":159}],162:[function(require,module,exports){
+},{"./components/NavBar":162,"7YKIPe":3,"buffer":2,"react":159}],162:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var React   = require( 'react' );
-var NavLink = require( './NavLink' );
 var getJSON = require( '../core/json' );
 
 
 var NavBar = React.createClass({displayName: "NavBar",
+    // Set the initial state of data to an empty array, it iwll be loaded by ajax.
+    getInitialState: function() {
+        return { data: [] };
+    },
+
     componentDidMount: function() {
-        if ( typeof this.props.data === 'undefined' ) {
-            this.props.data = [];
-        }
+        // Load the data from a json file.
+        $.get( this.props.src, function( result ) {
 
-        if ( this.props.data.length == 0 && typeof this.props.src !== 'undefined' ) {
-
-            getJSON( this.props.src, function( r ) {
-                this.props.data = r;
-                this.forceUpdate();
-            }.bind( this ) );
-        }
+            if (this.isMounted()) {
+                this.setState({
+                    data: result
+                });
+            }
+        }.bind( this ) );
     },
 
     // Handle a click from the links, this often dispached to the page, rather than to the links themeselves.
@@ -21366,57 +21367,28 @@ var NavBar = React.createClass({displayName: "NavBar",
     },
 
     render: function() {
-        var links = '';
-
-        if ( typeof this.props.data !== 'undefined' && this.props.data.length ) {
-            var links = this.props.data.map(function( linkData, i ) {
-                return (
-                    React.createElement(NavLink, {onClick: this.handleClick.bind( this, i), data: linkData, key: i})
-                )
-            }, this )
-        }
-
         return (
             React.createElement("section", {id: "nav-bar"}, 
                 React.createElement("ul", {className: "nav-entries"}, 
-                    links
+                    /* Include the mapped entreis of data */ 
+                    this.state.data.map(function( linkData, i ) {
+                        return (
+                            React.createElement(NavBar.NavLink, React.__spread({onClick: this.handleClick.bind( this, i), key: i},  linkData))
+                        )
+                    }, this), 
+
+                    /* Any other custom links are given less priority */ 
+                    this.props.children
                 )
             )
         )
     }
 });
 
-// {this.props.data.map(function( linkData, i ) {
-//     return (
-//         <NavLink onClick={this.handleClick.bind( this, i )} data={linkData} key={i}></NavLink>
-//     )
-// }, this )}
-
-module.exports = NavBar;
-
-
-}).call(this,require("7YKIPe"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/react/components/NavBar.js","/react/components")
-},{"../core/json":165,"./NavLink":163,"7YKIPe":3,"buffer":2,"react":159}],163:[function(require,module,exports){
-(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
-var React = require( 'react' );
-var getData = require( '../core/data' );
-
-
-var NavLink = React.createClass({displayName: "NavLink",
-    componentWillMount: function() {
-
-        if ( typeof this.props.data !== 'undefined' ) {
-            for ( var key in this.props.data ) {
-                if ( ! this.props.hasOwnProperty( key ) ) {
-                    this.props[ key ] = this.props.data[ key ];
-                }
-            }
-        }
-
-        console.log( this.props );
-    },
-
-
+/**
+ * Simply the container for a  single link of the nav bar types.
+ */
+NavBar.NavLink = React.createClass({displayName: "NavLink",
     render: function() {
         return (
             React.createElement("li", {className: "nav-element"}, 
@@ -21426,38 +21398,12 @@ var NavLink = React.createClass({displayName: "NavLink",
     }
 });
 
-module.exports = NavLink;
+
+module.exports = NavBar;
 
 
-}).call(this,require("7YKIPe"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/react/components/NavLink.js","/react/components")
-},{"../core/data":164,"7YKIPe":3,"buffer":2,"react":159}],164:[function(require,module,exports){
-(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
-var getJson = require( './json' );
-
-var dataProps = function() {
-    if ( typeof this.props.data !== 'undefined' ) {
-        for ( var propName in this.props.data ) {
-            this.props[ propName ] = this.props.data[ propName ];
-        }
-    } else if ( typeof this.props.src !== 'undefined' ) {
-
-        getJson( this.props.src, function( r ) {
-            this.props.data = r
-        }.bind( this ) );
-
-        dataProps.call( this );
-    } else if ( typeof this.props.data === 'undefined' ) {
-        this.props.data = [];
-    }
-};
-
-
-
-module.exports = dataProps;
-
-
-}).call(this,require("7YKIPe"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/react/core/data.js","/react/core")
-},{"./json":165,"7YKIPe":3,"buffer":2}],165:[function(require,module,exports){
+}).call(this,require("7YKIPe"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/react/components/NavBar.js","/react/components")
+},{"../core/json":163,"7YKIPe":3,"buffer":2,"react":159}],163:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 module.exports =  function( fileURL, callback ) {
     var xobj = new XMLHttpRequest();

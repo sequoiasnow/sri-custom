@@ -1,5 +1,4 @@
 var React  = require( 'react' );
-var NavLink = require( './components/NavLink' )
 var NavBar = require( './components/NavBar' );
 
 var App = React.createClass({

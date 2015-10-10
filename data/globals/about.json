@@ -1,0 +1,19 @@
+{
+    "background-image": {
+        "type": "String",
+        "title": "Background Image",
+        "help": "The background image for the about section, if left black this will default to the color specified",
+        "required": false
+    },
+    "background-color": {
+        "type": "Option",
+        "options": {
+            "light": { "title": "Light" },
+            "dark": { "title": "Dark" }
+        },
+        "default": "light",
+        "title": "Background Color",
+        "help": "The background color for the about section, please specify this even if an image is selected, as the image may be light or dark and this can impact the styling of the elements superimposed over that section.",
+        "required": true
+    }
+}
