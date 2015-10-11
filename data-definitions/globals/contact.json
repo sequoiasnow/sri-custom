@@ -1,0 +1,20 @@
+{
+    "email": {
+        "title": "Email",
+        "type": "String",
+        "required": true,
+        "help": "The email to be contacted with from the site."
+    },
+    "phone": {
+        "title": "Phone Number",
+        "type": "String",
+        "required": false,
+        "help": "A phone number that is displayed on the contact page for the site."
+    },
+    "adress": {
+        "title": "Physical Adress",
+        "type": "String",
+        "required": false,
+        "help": "A physical adress to display to users."
+    }
+}
