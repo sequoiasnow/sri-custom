@@ -4,40 +4,30 @@ var compass    = require( 'gulp-compass' );
 var concat     = require( 'gulp-concat' );
 var sourcemaps = require( 'gulp-sourcemaps' );
 
-var source     = require( 'vinyl-source-stream' );
-var buffer     = require( 'vinyl-buffer' );
-var browserify = require( 'browserify' );
-var watchify   = require( 'watchify' );
-var babel      = require( 'babelify' );
+var sourcemaps = require('gulp-sourcemaps');
+var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
+var browserify = require('browserify');
+var watchify = require('watchify');
+var babel = require('babelify');
 
+function swallowError( error ) {
+  // If you want details of the error in the console
+  console.log(error.toString());
 
-
-function compile(watch) {
-  var bundler = watchify(browserify('./src/index.js', { debug: true }).transform(babel));
-
-  function rebundle() {
-    bundler.bundle()
-      .on('error', function(err) { console.error(err); this.emit('end'); })
-      .pipe(source('build.js'))
-      .pipe(buffer())
-      .pipe(sourcemaps.init({ loadMaps: true }))
-      .pipe(sourcemaps.write('./'))
-      .pipe(gulp.dest('./build'));
-  }
-
-  if (watch) {
-    bundler.on('update', function() {
-      console.log('-> bundling...');
-      rebundle();
-    });
-  }
-
-  rebundle();
+  this.emit('end');
 }
 
-function watch() {
-  return compile(true);
-};
+gulp.task('build', function() {
+    browserify({
+        entries: './src/js/main.js',
+        debug: true
+    })
+    .transform(babel)
+    .bundle()
+    .pipe(source('main.js'))
+    .pipe(gulp.dest('./dist/js'));
+});
 
 
 gulp.task( 'js', function() {
@@ -56,11 +46,12 @@ gulp.task( 'sass', function() {
             sass: 'src/sass',
             css: 'dist/css'
         }))
+        .on('error', swallowError)
         .pipe(gulp.dest('./dist/css'));
 });
 
 gulp.task( 'watch', function() {
-    watch();
+    gulp.watch( 'src/js/**/*.js', [ 'build', 'js' ] );
 
     gulp.watch( 'src/sass/**/*.scss', [ 'sass' ] );
 });

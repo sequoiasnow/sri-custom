@@ -4,7 +4,7 @@
  *
  * Keep in sync with index.php
  */
-const __ids = {
+export const id = {
     siteContainer: 'site-container',
     mainPage: 'main-page'
-};
+}

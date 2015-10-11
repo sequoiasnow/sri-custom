@@ -1,1 +1,1 @@
-import {__ids} from "variables.js"
+import * as constants from "./variables"

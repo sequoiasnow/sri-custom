@@ -1,0 +1,82 @@
+#contact {
+    width: 100%;
+    background-color: $color__background-dark;
+
+    @include display-flex;
+    @include justify-content(center);
+    @include flex-direction(row);
+
+    // Typography
+    color: $color__text-light;
+}
+
+#contact .container { width: $width__page-center; }
+
+#contact .title {
+    width: 100%;
+    text-align: center;
+}
+
+#contact-form {
+    width: 100%;
+
+    @include display-flex;
+    @include justify-content(space-between);
+    @include flex-wrap(wrap);
+    @include flex-direction(row);
+}
+
+$_contact-between: 20px;
+
+#contact-form input, textarea {
+    font-size: $font__large;
+
+    // Remove default styles;
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    &:focus, & { color: $color__text-light; }
+}
+
+#contact-form input {
+    width: $width__page-center / 2 - $_contact-between /2;
+
+    height: $height__form-contact;
+
+    border-bottom: 2px solid $color__form-contact-border;
+
+}
+
+#contact-form textarea {
+    margin: $margin__form_contact 0;
+
+    width: 100%;
+
+    height: 2.5 * $height__form-contact;
+}
+
+#contact-form #contact-send {
+    @include transition( background-color $timing__text );
+
+    border-radius: 4px;
+
+    width: 100%;
+    background-color: $color__link-backgorund-dark;
+    $font-size: $font__large;
+
+    font-size: $font-size;
+    text-align: center;
+    padding: #{($height__form-contact - $font-size) / 2} 0;
+
+    &:active {
+        background-color: $color__pressed;
+    }
+}
+
+
+
+/// If no val.
+#contact-form .not-validated {
+    border-bottom: 2px solid $color__form-not-validated;
+}
