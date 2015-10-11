@@ -85,15 +85,27 @@ a.no-style {
   background-color: transparent;
   border: none;
   outline: none;
+  border-bottom: 1px solid #3F4449;
 }
 #contact-form input:focus, #contact-form input, textarea:focus, textarea {
   color: white;
+}
+#contact-form input:-moz-placeholder, textarea:-moz-placeholder {
+  color: #4d4d4d;
+}
+#contact-form input::-moz-placeholder, textarea::-moz-placeholder {
+  color: #4d4d4d;
+}
+#contact-form input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  color: #4d4d4d;
+}
+#contact-form input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: #4d4d4d;
 }
 
 #contact-form input {
   width: 440px;
   height: 60px;
-  border-bottom: 2px solid #3F4449;
 }
 
 #contact-form textarea {
@@ -118,8 +130,21 @@ a.no-style {
   background-color: #39AD9E;
 }
 
+#contact-form > *[required] {
+  position: relative;
+}
+#contact-form > *[required]::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 2px;
+  background-color: #ff3333;
+  border-radius: 50%;
+}
+
 #contact-form .not-validated {
-  border-bottom: 2px solid red;
+  border-bottom: 1px solid red;
 }
 
 .page-section {

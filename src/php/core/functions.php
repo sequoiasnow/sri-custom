@@ -45,3 +45,21 @@ function print_js( ) {
 
     echo implode( $data_js, "\n\r" );
 }
+
+/**
+ * Loads a php file as a template, all variables passed will be provided. As
+ * well as all of the functions in the functions.php file.
+ */
+function get_php_template( $file, $args = array() ) {
+    if ( file_exists( $file ) ) {
+        foreach ( $array as $var_name => $value ) {
+            $$var_name = $value;
+        }
+
+        ob_start();
+        include $file;
+        $contents = ob_get_contents();
+        ob_end_clean();
+        return $contents;
+    }
+}

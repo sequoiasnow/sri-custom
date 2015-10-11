@@ -1,3 +1,5 @@
+$_contact-between: 20px;
+
 #contact {
     width: 100%;
     background-color: $color__background-dark;
@@ -26,8 +28,6 @@
     @include flex-direction(row);
 }
 
-$_contact-between: 20px;
-
 #contact-form input, textarea {
     font-size: $font__large;
 
@@ -36,16 +36,20 @@ $_contact-between: 20px;
     border: none;
     outline: none;
 
+    // Add new styles
+    border-bottom: $lineheight__form-input solid $color__form-contact-border;
+
     &:focus, & { color: $color__text-light; }
+
+    // Chnage the default placeholder text color.
+    @include input-placeholder {
+        color: $color__form-placeholder-light;
+    }
 }
 
 #contact-form input {
     width: $width__page-center / 2 - $_contact-between /2;
-
     height: $height__form-contact;
-
-    border-bottom: 2px solid $color__form-contact-border;
-
 }
 
 #contact-form textarea {
@@ -74,9 +78,22 @@ $_contact-between: 20px;
     }
 }
 
+/// Required elements.
+#contact-form > *[required] {
+    position: relative;
 
+    &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: $size__form-required-icon;
+        height: $size__form-required-icon;
+        background-color: $color__form-required-icon;
+        border-radius: 50%;
+    }
+}
 
-/// If no val.
+/// If not validated properly.
 #contact-form .not-validated {
-    border-bottom: 2px solid $color__form-not-validated;
+    border-bottom: $lineheight__form-input solid $color__form-not-validated;
 }

@@ -1,9 +1,11 @@
 {
     "link": {
+        "title": "Link",
         "type": "String",
         "help": "The url that is linked to, in this case that is the name of the slide that is refferd to.",
     },
     "title": {
+        "title": "Title",
         "type": "String",
         "help": "The name of the title that is shown for the link."
     }
