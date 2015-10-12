@@ -1,0 +1,14 @@
+{
+    "title": {
+        "title": "Site Title",
+        "type": "String",
+        "required": true,
+        "help": "The title of the site, this will be displayed in the title block element."
+    },
+    "slogan": {
+        "title": "Site Slogan",
+        "type": "String",
+        "required": false,
+        "help": "A brief slogan for the site that will be displayed below the title in the title block element."
+    }
+}

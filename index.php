@@ -1,4 +1,7 @@
-<?php require_once 'src/php/core/include-component.php'; ?>
+<?php
+session_start();
+require_once 'src/php/core/include-component.php';
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,33 +14,17 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <!-- Include specific components -->
-        <script src="dist/js/variables.js"></script>
         <script src="dist/js/plugins.js"></script>
-        <script src="dist/js/elements.js"></script>
         <script src="dist/js/page.js"></script>
     </head>
     <body>
         <div id="site-contianer">
 
-            <section id="nav-bar-container">
-
-                <?php include_component( 'nav-bar' ); ?>
-
-            </section> <!-- #nav-bar-container -->
-
             <section id="main-page">
 
-                <section id="title-block" class="page-section">
+                <?php include_component( 'title-block' ); ?>
 
-                    <?php /* include_component( 'title-block' ); */ ?>
-
-                </section> <!-- #title-block -->
-
-                <section id="contact-block" class="page-section">
-
-                    <?php include_component( 'contact' ); ?>
-
-                </section> <!-- #contact-block -->
+                <?php include_component( 'contact' ); ?>
 
             </section> <!-- #main-page -->
 

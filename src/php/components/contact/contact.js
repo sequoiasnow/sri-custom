@@ -17,7 +17,7 @@ $( '#contact #contact-send' ).click(function() {
     $( '#contact form#contact-form .input-element' ).each(function() {
         var regexMatched = true;
 
-        if ( $(this).attr( 'type' ) == 'email' ) {    
+        if ( $(this).attr( 'type' ) == 'email' ) {
             regexMatched = $( this ).val().match( /^[\w\.-]+@[\w\.-]+$/i );
         }
 
@@ -34,13 +34,21 @@ $( '#contact #contact-send' ).click(function() {
         }
     });
 
+    // Add all hidden input values
+    $( '#contact form#contact-form input[type=hidden]' ).each(function() {
+        data[ $( this ).attr( 'name' ) ] = $( this ).val();
+    });
+
     if ( passesValidation ) {
         // Send the ajax request.
         $.ajax({
             type: "POST",
             url: $( '#contact-form' ).attr( 'action' ),
             data: data
-        }).done(function() {
+        }).done(function( res ) {
+
+            console.log( res );
+
             $( '#contact-form' ).addClass('submitted');
 
             var removeSubmitted = function() {

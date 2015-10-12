@@ -1,0 +1,12 @@
+.page-section {
+    width: 100%;
+
+    @include display-flex;
+    @include justify-content(center);
+    @include flex-direction(row);
+}
+
+.page-section .container {
+    width: $width__page-center;
+    padding: $padding__content-vertical $padding__content-horizontal;
+}

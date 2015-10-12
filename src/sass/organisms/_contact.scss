@@ -1,18 +1,11 @@
 $_contact-between: 20px;
 
 #contact {
-    width: 100%;
     background-color: $color__background-dark;
-
-    @include display-flex;
-    @include justify-content(center);
-    @include flex-direction(row);
 
     // Typography
     color: $color__text-light;
 }
-
-#contact .container { width: $width__page-center; }
 
 #contact .title {
     width: 100%;
@@ -44,12 +37,18 @@ $_contact-between: 20px;
     // Chnage the default placeholder text color.
     @include input-placeholder {
         color: $color__form-placeholder-light;
+        font-size: $font__large;
     }
 }
 
 #contact-form input {
-    width: $width__page-center / 2 - $_contact-between /2;
+    width: 49%;
     height: $height__form-contact;
+}
+
+// Change input sized based off of textarea width.
+@media screen and (max-width: #{$minwidth__form-input / .49} ) {
+    #contact-form input { width: 100%; }
 }
 
 #contact-form textarea {

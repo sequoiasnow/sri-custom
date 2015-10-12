@@ -5,9 +5,10 @@
 function get_data_type( $type ) {
     $data_file = "data/types/{$type}.json";
     if ( file_exists( $data_file ) ) {
-        return json_decode( file_get_contents( $data_file ) );
+        return json_decode( file_get_contents( $data_file ), true );
     }
 }
+
 
 /**
  * Gets all the data from a certain data global.
@@ -15,7 +16,9 @@ function get_data_type( $type ) {
 function get_data_global( $from ) {
     $data_file = "data/globals/{$from}.json";
     if ( file_exists( $data_file ) ) {
-        return json_decode( file_get_contents( $data_file ) );
+        $data = json_decode( file_get_contents( $data_file ), true );
+
+        return $data;
     }
 }
 
@@ -52,7 +55,7 @@ function print_js( ) {
  */
 function get_php_template( $file, $args = array() ) {
     if ( file_exists( $file ) ) {
-        foreach ( $array as $var_name => $value ) {
+        foreach ( $args as $var_name => $value ) {
             $$var_name = $value;
         }
 

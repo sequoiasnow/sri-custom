@@ -4,13 +4,15 @@ $data = get_data_global( 'contact' );
 
 add_js( "$componentdir/contact.js" );
 
+$id = uniqid();
+
 // A random hash generated to disallow spaming.
 $random_hash = bin2hex(openssl_random_pseudo_bytes(16));
-$_SERVER[ component_name() . '__identity_hashs' ][] = $random_hash;
+$_SESSION[ "contact__identity_hash--$id" ] = $random_hash;
 
 ?>
 
-<section id="contact">
+<section id="contact" class="page-section">
 
     <section class="container">
 
@@ -20,6 +22,7 @@ $_SERVER[ component_name() . '__identity_hashs' ][] = $random_hash;
 
         <form id="contact-form" method="post" action="<?php echo "$componentdir/form-recieve.php" ?>">
             <input type="hidden" name="identity_hash" value="<?php print $random_hash; ?>" />
+            <input type="hidden" name="form_id" value="<?php print $id; ?>" />
 
             <input class="input-element" type="text" name="name" placeholder="Name" required />
             <input class="input-element" type="email" name="email" placeholder="Email" required />
