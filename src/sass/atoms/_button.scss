@@ -1,0 +1,46 @@
+button, .button {
+    @include transition( all $timing__button );
+    @include border-radius( #{ ($padding__button + $font__size-button / 2) * 1.2 } );
+
+    margin: #{$padding__button} 0;
+    padding: $padding__button;
+    display: inline-block;
+
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 7px;
+
+    cursor: pointer;
+
+    font-family: $font__family-heading;
+    font-weight: $font__weight-button;
+    font-size: $font__size-button;
+
+    background-color: transparent;
+
+    &:hover {
+        padding-left: $padding__button * 2;
+        padding-right: $padding__button * 2;
+    }
+
+    border: 1px solid $color__button-default;
+    color: $color__button-default;
+
+    &:hover {
+        color: $color__text-dark;
+        background-color: $color__button-default;
+    }
+
+    @each $name, $val in $colors__button {
+        &.color-#{$name} {
+            border: 1px solid $val;
+            color: $val;
+
+            &:hover {
+                color: $color__text-dark;
+                background-color: $val;
+            }
+        }
+    }
+
+}

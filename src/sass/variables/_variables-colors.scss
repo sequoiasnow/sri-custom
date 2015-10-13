@@ -1,10 +1,48 @@
+// Some standard sitewide colors
+
+$lightgrey: rgb(189, 195, 199);
+$grey: rgb(149, 165, 166);
+$darkgrey: rgb(127, 140, 141);
+
+$lightyellow: rgb(241, 196, 15);
+$yellow: rgb(241, 196, 15);
+$darkyellow: rgb(241, 196, 15);
+
+$lightorange: rgb(243, 156, 18);
+$orange: rgb(230, 126, 34);
+$darkorange: rgb(211, 84, 0);
+
+$lightblue: rgb(26, 188, 156);
+$blue: rgb(52, 152, 219);
+$darkblue: rgb(41, 128, 185);
+
+$lightred: rgb(231, 76, 60);
+$red: rgb(231, 76, 60);
+$darkred: rgb(192, 57, 43);
+
+$lightpurple: rgb(155, 89, 182);
+$purple: rgb(155, 89, 182);
+$darkpurple: rgb(142, 68, 173);
+
+$lightgreen: rgb(46, 204, 113);
+$green: rgb(39, 174, 96);
+$darkgreen: rgb(22, 160, 133);
+
+$black: rgb(52, 73, 94);
+
+
+
+
+
 // Backround colors.
 $color__background-dark: #171B1E;
 $color__background-light: #F5F4F1;
 
 $color__text-visited: #ccc;
-$color__text-light: white;
 $color__text-medium: #ccc;
+
+$color__text-light: white;
+$color__text-dark: black;
 
 $color__pressed: #39AD9E;
 
@@ -14,3 +52,31 @@ $color__form-contact-border: #3F4449;
 $color__form-not-validated: red;
 $color__form-placeholder-light: darken(grey, 20);
 $color__form-required-icon: lighten(red, 10);
+
+
+$color__button-default: white;
+
+$colors__button: (
+     'white'      : white,
+     'lightgrey'  : $lightgrey,
+     'grey'       : $grey,
+     'darkgrey'   : $darkgrey,
+     'lightyellow': $lightyellow,
+     'yellow'     : $yellow,
+     'darkyellow' : $darkyellow,
+     'lightorange': $lightorange,
+     'orange'     : $orange,
+     'darkorange' : $darkorange,
+     'lightblue'  : $lightblue,
+     'blue'       : $blue,
+     'darkblue'   : $darkblue,
+     'lightred'   : $lightred,
+     'red'        : $red,
+     'darkred'    : $darkred,
+     'lightpurple': $lightpurple,
+     'purple'     : $purple,
+     'darkpurple' : $darkpurple,
+     'lightgreen' : $lightgreen,
+     'green'      : $green,
+     'darkgreen'  : $darkgreen,
+);

@@ -29,7 +29,9 @@ $_SESSION[ "contact__identity_hash--$id" ] = $random_hash;
 
             <textarea class="input-element" name="message" placeholder="Message"></textarea>
 
-            <div id="contact-send"><span>Send</span></div>
+            <div class="center-button">
+                <button class="color-red" id="contact-send">Send</button>
+            </div>
 
         </form> <!-- #contact-form -->
 

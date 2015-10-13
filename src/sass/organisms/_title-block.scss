@@ -1,0 +1,18 @@
+#title-block {
+    background-image: linear-gradient(to bottom, #d59254, #cf7693);
+    height: 100vh;
+}
+
+#title-block .container {
+    text-align: center;
+    color: $color__text-light;
+    font-family: $font__family-heading;
+}
+
+#title-block .title-container {
+    font-size: $font__size-site-title;
+}
+
+#title-block .content footer {
+    margin-top: 10%;
+}

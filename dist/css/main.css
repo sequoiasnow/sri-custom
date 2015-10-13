@@ -47,6 +47,239 @@ a.no-style {
   font-family: inherit;
 }
 
+button, .button {
+  -moz-transition: all 0.9s;
+  -o-transition: all 0.9s;
+  -webkit-transition: all 0.9s;
+  transition: all 0.9s;
+  -moz-border-radius: 25.2px;
+  -webkit-border-radius: 25.2px;
+  border-radius: 25.2px;
+  margin: 15px 0;
+  padding: 15px;
+  display: inline-block;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 7px;
+  cursor: pointer;
+  font-family: "PT Sans", sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+}
+button:hover, .button:hover {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+button:hover, .button:hover {
+  color: black;
+  background-color: white;
+}
+button.color-white, .button.color-white {
+  border: 1px solid white;
+  color: white;
+}
+button.color-white:hover, .button.color-white:hover {
+  color: black;
+  background-color: white;
+}
+button.color-lightgrey, .button.color-lightgrey {
+  border: 1px solid #bdc3c7;
+  color: #bdc3c7;
+}
+button.color-lightgrey:hover, .button.color-lightgrey:hover {
+  color: black;
+  background-color: #bdc3c7;
+}
+button.color-grey, .button.color-grey {
+  border: 1px solid #95a5a6;
+  color: #95a5a6;
+}
+button.color-grey:hover, .button.color-grey:hover {
+  color: black;
+  background-color: #95a5a6;
+}
+button.color-darkgrey, .button.color-darkgrey {
+  border: 1px solid #7f8c8d;
+  color: #7f8c8d;
+}
+button.color-darkgrey:hover, .button.color-darkgrey:hover {
+  color: black;
+  background-color: #7f8c8d;
+}
+button.color-lightyellow, .button.color-lightyellow {
+  border: 1px solid #f1c40f;
+  color: #f1c40f;
+}
+button.color-lightyellow:hover, .button.color-lightyellow:hover {
+  color: black;
+  background-color: #f1c40f;
+}
+button.color-yellow, .button.color-yellow {
+  border: 1px solid #f1c40f;
+  color: #f1c40f;
+}
+button.color-yellow:hover, .button.color-yellow:hover {
+  color: black;
+  background-color: #f1c40f;
+}
+button.color-darkyellow, .button.color-darkyellow {
+  border: 1px solid #f1c40f;
+  color: #f1c40f;
+}
+button.color-darkyellow:hover, .button.color-darkyellow:hover {
+  color: black;
+  background-color: #f1c40f;
+}
+button.color-lightorange, .button.color-lightorange {
+  border: 1px solid #f39c12;
+  color: #f39c12;
+}
+button.color-lightorange:hover, .button.color-lightorange:hover {
+  color: black;
+  background-color: #f39c12;
+}
+button.color-orange, .button.color-orange {
+  border: 1px solid #e67e22;
+  color: #e67e22;
+}
+button.color-orange:hover, .button.color-orange:hover {
+  color: black;
+  background-color: #e67e22;
+}
+button.color-darkorange, .button.color-darkorange {
+  border: 1px solid #d35400;
+  color: #d35400;
+}
+button.color-darkorange:hover, .button.color-darkorange:hover {
+  color: black;
+  background-color: #d35400;
+}
+button.color-lightblue, .button.color-lightblue {
+  border: 1px solid #1abc9c;
+  color: #1abc9c;
+}
+button.color-lightblue:hover, .button.color-lightblue:hover {
+  color: black;
+  background-color: #1abc9c;
+}
+button.color-blue, .button.color-blue {
+  border: 1px solid #3498db;
+  color: #3498db;
+}
+button.color-blue:hover, .button.color-blue:hover {
+  color: black;
+  background-color: #3498db;
+}
+button.color-darkblue, .button.color-darkblue {
+  border: 1px solid #2980b9;
+  color: #2980b9;
+}
+button.color-darkblue:hover, .button.color-darkblue:hover {
+  color: black;
+  background-color: #2980b9;
+}
+button.color-lightred, .button.color-lightred {
+  border: 1px solid #e74c3c;
+  color: #e74c3c;
+}
+button.color-lightred:hover, .button.color-lightred:hover {
+  color: black;
+  background-color: #e74c3c;
+}
+button.color-red, .button.color-red {
+  border: 1px solid #e74c3c;
+  color: #e74c3c;
+}
+button.color-red:hover, .button.color-red:hover {
+  color: black;
+  background-color: #e74c3c;
+}
+button.color-darkred, .button.color-darkred {
+  border: 1px solid #c0392b;
+  color: #c0392b;
+}
+button.color-darkred:hover, .button.color-darkred:hover {
+  color: black;
+  background-color: #c0392b;
+}
+button.color-lightpurple, .button.color-lightpurple {
+  border: 1px solid #9b59b6;
+  color: #9b59b6;
+}
+button.color-lightpurple:hover, .button.color-lightpurple:hover {
+  color: black;
+  background-color: #9b59b6;
+}
+button.color-purple, .button.color-purple {
+  border: 1px solid #9b59b6;
+  color: #9b59b6;
+}
+button.color-purple:hover, .button.color-purple:hover {
+  color: black;
+  background-color: #9b59b6;
+}
+button.color-darkpurple, .button.color-darkpurple {
+  border: 1px solid #8e44ad;
+  color: #8e44ad;
+}
+button.color-darkpurple:hover, .button.color-darkpurple:hover {
+  color: black;
+  background-color: #8e44ad;
+}
+button.color-lightgreen, .button.color-lightgreen {
+  border: 1px solid #2ecc71;
+  color: #2ecc71;
+}
+button.color-lightgreen:hover, .button.color-lightgreen:hover {
+  color: black;
+  background-color: #2ecc71;
+}
+button.color-green, .button.color-green {
+  border: 1px solid #27ae60;
+  color: #27ae60;
+}
+button.color-green:hover, .button.color-green:hover {
+  color: black;
+  background-color: #27ae60;
+}
+button.color-darkgreen, .button.color-darkgreen {
+  border: 1px solid #16a085;
+  color: #16a085;
+}
+button.color-darkgreen:hover, .button.color-darkgreen:hover {
+  color: black;
+  background-color: #16a085;
+}
+
+.center-button {
+  width: 100%;
+  text-align: center;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.center-singlular-vertically {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
 .page-section {
   width: 100%;
   display: -webkit-flex;
@@ -127,22 +360,6 @@ a.no-style {
   height: 150px;
 }
 
-#contact-form #contact-send {
-  -moz-transition: background-color 0.2s;
-  -o-transition: background-color 0.2s;
-  -webkit-transition: background-color 0.2s;
-  transition: background-color 0.2s;
-  border-radius: 4px;
-  width: 100%;
-  background-color: #6B7175;
-  font-size: 24px;
-  text-align: center;
-  padding: 18px 0;
-}
-#contact-form #contact-send:active {
-  background-color: #39AD9E;
-}
-
 #contact-form > *[required] {
   position: relative;
 }
@@ -158,6 +375,25 @@ a.no-style {
 
 #contact-form .not-validated {
   border-bottom: 1px solid red;
+}
+
+#title-block {
+  background-image: linear-gradient(to bottom, #d59254, #cf7693);
+  height: 100vh;
+}
+
+#title-block .container {
+  text-align: center;
+  color: white;
+  font-family: "PT Sans", sans-serif;
+}
+
+#title-block .title-container {
+  font-size: 180px;
+}
+
+#title-block .content footer {
+  margin-top: 10%;
 }
 
 .page-section {

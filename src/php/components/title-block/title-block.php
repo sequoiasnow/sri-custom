@@ -1,12 +1,13 @@
 <?php
-
 $data = get_data_global( 'title-block' );
 extract( $data );
+
+add_js( "$componentdir/title-block.js" );
 ?>
 
 <section id="title-block" class="page-section">
 
-    <section class="container">
+    <section class="container center-singlular-vertically">
 
         <article class="content">
 

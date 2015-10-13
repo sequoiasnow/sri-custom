@@ -1,0 +1,26 @@
+{
+    "image": {
+        "title": "Image",
+        "type": "Image",
+        "required": true,
+        "help": "The image of the individual."
+    },
+    "name": {
+        "title": "Name",
+        "type": "String",
+        "required": true,
+        "help": "The name of the person added to the about page."
+    },
+    "position": {
+        "title": "Job Position",
+        "type": "String",
+        "required": false,
+        "help": "The position of the person being described."
+    },
+    "description": {
+        "title": "Description",
+        "type": "String",
+        "required": true,
+        "help": "The description of the person."
+    },
+}

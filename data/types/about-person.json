@@ -1,0 +1,62 @@
+[
+    {
+        "image": "person-colleen_griggs.jpg",
+        "name": "Colleen Griggs",
+        "position": "Logistics",
+        "description": "Colleen is responsible for field laptop computer acquisition and management."
+    },
+    {
+        "image": "person-elin_klaseen.jpg",
+        "name": "Elin Klaseen",
+        "position": "Documentation",
+        "description": "Elin is a Senior Research Engineer."
+    },
+    {
+        "image": "person-jaime_sedano.jpg",
+        "name": "Jaime Sedano",
+        "position": "Logistics",
+        "description": "Jaime is an Associate Engineer."
+    },
+    {
+        "image": "person-michael_hawks.jpg",
+        "name": "Michael Hawks",
+        "position": "Logistics",
+        "description": "Michael is a Sr IT Systems Engineer."
+    },
+    {
+        "image": "person-robert_oxsen.jpg",
+        "name": "Robert Oxsen",
+        "position": "Engineering",
+        "description": "Robert is a Research Engineer"
+    },
+    {
+        "image": "person-elizabeth_kendall.jpg",
+        "name": "Elizabeth Kendall",
+        "position": "Management",
+        "description": "Elizabeth is a Project Manager"
+    },
+    {
+        "image": "person-todd_valentic.jpg",
+        "name": "Todd Valentic",
+        "position": "Engineering",
+        "description": "Todd is a Principal Research Engineer."
+    },
+    {
+        "image": "person-tim_gutierrez.jpg",
+        "name": "Tim Gutierrez",
+        "position": "Logistics",
+        "description": "Tim is a Project Support Specialist."
+    },
+    {
+        "image": "person-michael_huff.jpg",
+        "name": "Michael Huff",
+        "position": "Engineering",
+        "description": "Michael is a Research Engineer II"
+    },
+    {
+        "image": "person-gabe_hernandez.jpg",
+        "name": "Gabe Hernandez",
+        "position": "Logistics",
+        "description": "Gabe is a Systems Administrator"
+    }
+]
