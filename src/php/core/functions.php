@@ -66,3 +66,31 @@ function get_php_template( $file, $args = array() ) {
         return $contents;
     }
 }
+
+/**
+ * Returns the relative path to an image.
+ */
+function get_image_path( $image ) {
+
+    if ( 0 !== strpos( $image, "data/images/" ) && 0 !== strpos( $image, 'http' ) ) {
+        return "data/images/$image";
+    }
+}
+
+/**
+ * Renders an image into a full tag.
+ */
+function render_image( $image ) {
+    $image = get_image_path( $image );
+return <<<TAG
+<img src="{$image}" />
+TAG;
+}
+
+/**
+ * Shows the
+ */
+function style_bgimage( $image ) {
+    $image = get_image_path( $image );
+    return "style=\"background-image: url({$image});\"";
+}

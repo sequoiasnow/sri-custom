@@ -3,6 +3,14 @@
     text-align: center;
 }
 
+.align-center-singular {
+    width: 100%;
+
+    @include display-flex;
+    @include flex-direction( row );
+    @include justify-content( center );
+}
+
 .align-center { text-align: center; }
 .align-left { text-align: left; }
 .align-right { text-align: right; }

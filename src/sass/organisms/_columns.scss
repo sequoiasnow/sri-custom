@@ -1,0 +1,7 @@
+.column-container {
+    @include column-layout( '.column' );
+}
+
+.column-float-container {
+    @include column-float( '.column' );
+}

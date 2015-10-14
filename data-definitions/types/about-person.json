@@ -14,13 +14,13 @@
     "position": {
         "title": "Job Position",
         "type": "String",
-        "required": false,
+        "required": true,
         "help": "The position of the person being described."
     },
     "description": {
         "title": "Description",
         "type": "String",
-        "required": true,
+        "required": false,
         "help": "The description of the person."
     },
 }

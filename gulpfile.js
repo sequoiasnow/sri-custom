@@ -5,11 +5,11 @@ var concat     = require( 'gulp-concat' );
 var sourcemaps = require( 'gulp-sourcemaps' );
 
 var sourcemaps = require('gulp-sourcemaps');
-var source = require('vinyl-source-stream');
-var buffer = require('vinyl-buffer');
+var source     = require('vinyl-source-stream');
+var buffer     = require('vinyl-buffer');
 var browserify = require('browserify');
-var watchify = require('watchify');
-var babel = require('babelify');
+var watchify   = require('watchify');
+var babel      = require('babelify');
 
 function swallowError( error ) {
   // If you want details of the error in the console

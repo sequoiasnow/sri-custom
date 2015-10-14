@@ -1,8 +1,8 @@
 (function($) {
 
     $.scrollTo = function( selector, time ) {
-        if ( typeof time === undefined ) {
-            time = 1000;
+        if ( typeof time === 'undefined' ) {
+            time = 1200;
         }
 
         var element = selector;
@@ -26,11 +26,13 @@
  */
 jQuery(document).ready(function($) {
 
-    $( 'button [scroll-to-next], .button[scroll-to-next]' ).on( 'click', function() {
+    $( 'button[scroll-to-next], .button[scroll-to-next]' ).on( 'click', function() {
 
         var scrollTo = $( this ).closest( '.page-section' ).next( '.page-section' );
 
         $.scrollTo ( scrollTo );
+
+
 
     });
 

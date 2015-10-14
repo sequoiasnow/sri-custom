@@ -1,0 +1,65 @@
+$size__column-container-margin: (100% - $size__column-container-width) / 2;
+
+@mixin column-layout( $selector: '.column' ) {
+    width: $size__column-container-width;
+    margin-left: $size__column-container-margin;
+    margin-right: $size__column-container-margin;
+
+    // Specified float fixes some problems using columns for webkit and moz.
+    float: right;
+
+    // Specify the sizes of the columns.
+    @include column-count(auto);
+    @include column-gap( $size__column-gap );
+    @include column-width( $size__column-width );
+    @include break-inside(avoid);
+
+
+    padding: 0;
+
+    #{ $selector } {
+        display: inline-block;
+        margin-bottom: $size__column-gap;
+
+        overflow: hidden;
+        position: relative;
+    }
+
+    * { display: block; }
+}
+
+@mixin column-float( $selector: '.column', $size__column-float: $size__column-float-default ) {
+    width: 100%;
+    padding: 0;
+
+    @include display-flex;
+    @include flex-direction( row );
+    @include flex-wrap( wrap );
+
+    #{ $selector } {
+        width: 100%;
+
+        padding: 0;
+        margin: 0;
+
+        height: $size__column-float;
+    }
+
+    .column-fill-last {
+        @include flex-grow( 1);
+
+        background-color: tomato;
+
+        padding: 0;
+        margin: 0;
+        height: $size__column-float;
+
+        overflow: hidden;
+    }
+
+    @for $i from 0 through 10 {
+        @media screen and (min-width: #{ $size__column-float * $i }) {
+            #{ $selector } { width: 100% / $i; }
+        }
+    }
+}
