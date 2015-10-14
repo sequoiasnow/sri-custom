@@ -2,14 +2,12 @@ var gulp       = require( 'gulp' );
 var rename     = require( 'gulp-rename' );
 var compass    = require( 'gulp-compass' );
 var concat     = require( 'gulp-concat' );
-var sourcemaps = require( 'gulp-sourcemaps' );
 
-var sourcemaps = require('gulp-sourcemaps');
 var source     = require('vinyl-source-stream');
-var buffer     = require('vinyl-buffer');
 var browserify = require('browserify');
-var watchify   = require('watchify');
 var babel      = require('babelify');
+
+var connect    = require('gulp-connect-php');
 
 function swallowError( error ) {
   // If you want details of the error in the console
@@ -45,6 +43,10 @@ gulp.task( 'sass', function() {
         }))
         .on('error', swallowError)
         .pipe(gulp.dest('./dist/css'));
+});
+
+gulp.task( 'serve', function() {
+    connect.server();
 });
 
 gulp.task( 'watch', function() {
