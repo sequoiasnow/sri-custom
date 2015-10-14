@@ -4,7 +4,7 @@ $data = get_data_type( 'equipment-category' );
 
 <section id="equipment" class="page-section">
 
-    <section id="equipment-types">
+    <section id="equipment-categories">
 
         <?php foreach ( $data as $category ) : extract( $category ); ?>
 

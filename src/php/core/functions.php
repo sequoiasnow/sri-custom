@@ -3,7 +3,7 @@
  * Prints a string in an html encoded manner.
  */
 function __( $stirng = '' ) {
-    return htmlspecialchars( $stirng );
+    return htmlentities( $stirng );
 }
 
 

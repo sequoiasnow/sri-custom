@@ -11,6 +11,11 @@
     @include justify-content( center );
 }
 
+.align-center-margin {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .align-center { text-align: center; }
 .align-left { text-align: left; }
 .align-right { text-align: right; }

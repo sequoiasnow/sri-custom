@@ -1,4 +1,6 @@
 $width__page-center: 900px;
+$width__page-center-large: 1200px;
+
 $padding__content-horizontal: 20px;
 $padding__content-vertical: 40px;
 $padding__button: 15px;
@@ -16,4 +18,9 @@ $size__column-container-width: 100%;
 $size__column-gap: 15px;
 $size__column-width: 250px;
 
-$size__column-float-default: 400px;
+$size__column-flex-default: 400px;
+
+$size__column-equipment: $width__page-center-large / 4;
+
+$size__icon-equipment: 120px;
+$padding__content-equipmet: 60px;

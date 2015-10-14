@@ -2,6 +2,6 @@
     @include column-layout( '.column' );
 }
 
-.column-float-container {
-    @include column-float( '.column' );
+.column-flex-container {
+    @include column-flex( '.column' );
 }

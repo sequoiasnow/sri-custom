@@ -28,7 +28,7 @@ $size__column-container-margin: (100% - $size__column-container-width) / 2;
     * { display: block; }
 }
 
-@mixin column-float( $selector: '.column', $size__column-float: $size__column-float-default ) {
+@mixin column-flex( $selector: '.column', $size__column-flex: $size__column-flex-default ) {
     width: 100%;
     padding: 0;
 
@@ -37,30 +37,28 @@ $size__column-container-margin: (100% - $size__column-container-width) / 2;
     @include flex-wrap( wrap );
 
     #{ $selector } {
-        @include flex-grow( 1 );
-
         width: 100%;
 
         padding: 0;
         margin: 0;
 
-        height: $size__column-float;
+        height: $size__column-flex;
     }
 
     .column-fill-last {
-        @include flex( 2 );
+        @include flex( 1 );
 
         background-color: tomato;
 
         padding: 0;
         margin: 0;
-        height: $size__column-float;
+        height: $size__column-flex;
 
         overflow: hidden;
     }
 
-    @for $i from 0 through 10 {
-        @media screen and (min-width: #{ $size__column-float * $i }) {
+    @for $i from 1 through 10 {
+        @media screen and (min-width: #{ $size__column-flex * $i }) {
             #{ $selector } { width: 100% / $i; }
         }
     }

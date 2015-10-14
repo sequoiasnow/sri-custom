@@ -3,7 +3,7 @@ $about_persons = get_data_type( 'about-person' );
 ?>
 
 
-<section id="about-people" class="column-float-container page-section">
+<section id="about-people" class="column-flex-container page-section">
 
     <?php foreach ( $about_persons as $current_data ) : extract( $current_data ); ?>
 

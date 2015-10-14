@@ -1,0 +1,77 @@
+#equipment {
+    width: 100%;
+    text-align: center;
+
+    padding: $padding__content-equipmet 0;
+
+    @include background-image( linear-gradient(#ebeff8, #f5f6f8, #f5f6f8 ) );
+}
+
+#equipment-categories {
+    @extend .align-center-margin;
+
+    width: $width__page-center-large;
+
+    padding: 0;
+
+    @include display-flex;
+    @include flex-direction( row );
+    @include flex-wrap( wrap );
+}
+
+#equipment-categories article.category {
+    @include box-sizing( border-box );
+    @include flex( 1 1 100% );
+
+    display: inline-block;
+    width: 20%;
+
+    padding: 0 5px;
+    text-align: center;
+
+    @for $i from 1 through 10 {
+        @media screen and (min-width: #{ $size__column-equipment * $i}) {
+            @include flex-basis( 100% / $i );
+        }
+    }
+}
+
+#equipment-categories article.category .icon-container {
+    @include border-radius( 25% );
+    border: 1px solid #E5E8ED;
+
+    overflow: hidden;
+    background-color: white;
+
+    width: $size__icon-equipment;
+    height: $size__icon-equipment;
+
+    text-align: center;
+
+    @include display-flex;
+    @include justify-content(center);
+    @include flex-direction(column);
+
+    @extend .align-center-margin;
+
+    margin-top: 0;
+
+    .fa {
+        font-weight: lighter;
+        font-size: $size__icon-equipment * 0.6;
+    }
+}
+
+#equipment-categories article.category .name {
+    font-size: $font__medium;
+
+    margin: 20px 0 ;
+}
+
+#equipment-categories article.category  .description {
+    opacity: 0.5;
+
+    @extend .align-center-margin;
+
+    max-width: $size__column-equipment * 0.85;
+}
