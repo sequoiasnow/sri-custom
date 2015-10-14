@@ -10,6 +10,8 @@ To initialize the js and sass resources run `gulp`.
 
 # Serve
 
+To server a php web server for the project, run `gulp serve`
+
 # Watch
 
 To watch for styling changes run `gulp watch`
