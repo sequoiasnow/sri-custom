@@ -37,6 +37,8 @@ $size__column-container-margin: (100% - $size__column-container-width) / 2;
     @include flex-wrap( wrap );
 
     #{ $selector } {
+        @include flex-grow( 1 );
+
         width: 100%;
 
         padding: 0;
@@ -46,7 +48,7 @@ $size__column-container-margin: (100% - $size__column-container-width) / 2;
     }
 
     .column-fill-last {
-        @include flex-grow( 1);
+        @include flex( 2 );
 
         background-color: tomato;
 

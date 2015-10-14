@@ -1,0 +1,26 @@
+{
+    "name": {
+        "type": "String",
+        "required": true,
+        "title": "Category Name",
+        "help": "The name of the category to be displayed."
+    },
+    "description": {
+        "type": "String",
+        "required": true,
+        "title": "Category Description",
+        "help": "The description of the category to be displayed. This should only be one or two sentences."
+    },
+    "icon": {
+        "type": "Icon",
+        "required": true,
+        "title": "Icon",
+        "help": "The icon to be displayed representing this as pulled from font awesome."
+    },
+    "link": {
+        "type": "String",
+        "required": false,
+        "title": "Category Name",
+        "help": "A page this category should link to..."
+    }
+}

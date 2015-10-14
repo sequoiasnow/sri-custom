@@ -6,7 +6,7 @@ collaboration with AJ Perrine.
 # Initialize
 To get started, run `npm install` to access all packages needed.
 
-To initialize the js and sass resources run `gulp`.
+To initialize the javascript and sass resources run `gulp`.
 
 # Serve
 

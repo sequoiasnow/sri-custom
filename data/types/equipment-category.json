@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Satelite Phones",
+        "description": "The phones available to Arctic researchers provide global reliable voice using a variety of satellite-based services. Data, fax, messaging, and email services are also available bundled into the phone or as separate kits or configurations",
+        "icon": "phone"
+    },
+    {
+        "name": "Safety Equipment",
+        "description": "SRI provides two location devices for fielding and support to researchers while in the field.",
+        "icon": "life-ring"
+    },
+    {
+        "name": "Power Equipment",
+        "description": "Several technologies are available for remote power systems in arctic environments",
+        "icon": "power-off"
+    },
+    {
+        "name": "Radios",
+        "description": "The radios available to Arctic researchers provide ground and air communication services. Base stations and repeaters may be utilized to extend the radio “network”.",
+        "icon": "wifi"
+    }
+]

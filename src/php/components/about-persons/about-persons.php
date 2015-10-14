@@ -13,16 +13,16 @@ $about_persons = get_data_type( 'about-person' );
             <div class="person-meta">
 
                 <div class="name">
-                    <span><?php print $name; ?></span>
+                    <span><?php print __( $name ); ?></span>
                 </div>
 
                 <div class="position">
-                    <span><?php print $position; ?></span>
+                    <span><?php print __( $position ); ?></span>
                 </div>
 
             </div> <!-- .person-meta -->
 
-            <!-- <span class="description"><?php print $position; ?></span> -->
+            <!-- <span class="description"><?php print __( $description ); ?></span> -->
 
         </article> <!-- .about-person -->
 

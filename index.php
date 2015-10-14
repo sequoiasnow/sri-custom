@@ -7,6 +7,9 @@ require_once 'src/php/core/include-component.php';
     <head>
         <title>Sri Arsls</title>
 
+        <!-- Include font awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
         <!-- Include the CSS -->
         <link rel="stylesheet" href="dist/css/main.css" type="text/css" />
 
@@ -23,6 +26,8 @@ require_once 'src/php/core/include-component.php';
             <section id="main-page">
 
                 <?php include_component( 'title-block' ); ?>
+
+                <?php include_component( 'equipment' ); ?>
 
                 <?php include_component( 'about-persons' ); ?>
 

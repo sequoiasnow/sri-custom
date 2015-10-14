@@ -514,14 +514,16 @@ button.color-darkgreen:hover, .button.color-darkgreen:hover {
   flex-wrap: wrap;
 }
 .column-float-container .column {
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
   width: 100%;
   padding: 0;
   margin: 0;
   height: 400px;
 }
 .column-float-container .column-fill-last {
-  -webkit-flex-grow: 1;
-  flex-grow: 1;
+  -webkit-flex: 2;
+  flex: 2;
   background-color: tomato;
   padding: 0;
   margin: 0;

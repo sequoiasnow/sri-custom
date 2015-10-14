@@ -1,5 +1,13 @@
 <?php
 /**
+ * Prints a string in an html encoded manner.
+ */
+function __( $stirng = '' ) {
+    return htmlspecialchars( $stirng );
+}
+
+
+/**
  * Gets all data from a certain data type.
  */
 function get_data_type( $type ) {
