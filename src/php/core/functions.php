@@ -1,4 +1,6 @@
 <?php
+include_once __DIR__ . '/../plugins/Parsedown.php';
+
 /**
  * Prints a string in an html encoded manner.
  */
@@ -6,12 +8,18 @@ function __( $stirng = '' ) {
     return htmlentities( $stirng );
 }
 
+/**
+ * Prints a string as rendered in markdown.
+ */
+function __m( $string = '' ) {
+    return (new Parsedown)->text( $string );
+}
 
 /**
  * Gets all data from a certain data type.
  */
-function get_data_type( $type ) {
-    $data_file = "data/types/{$type}.json";
+function get_data_type( $name ) {
+    $data_file = "data/types/{$name}.json";
     if ( file_exists( $data_file ) ) {
         return json_decode( file_get_contents( $data_file ), true );
     }
@@ -21,8 +29,8 @@ function get_data_type( $type ) {
 /**
  * Gets all the data from a certain data global.
  */
-function get_data_global( $from ) {
-    $data_file = "data/globals/{$from}.json";
+function get_data_global( $name ) {
+    $data_file = "data/globals/{$name}.json";
     if ( file_exists( $data_file ) ) {
         $data = json_decode( file_get_contents( $data_file ), true );
 
@@ -30,6 +38,17 @@ function get_data_global( $from ) {
     }
 }
 
+/**
+ * Returnes a directly json decoded custom data file.
+ */
+function get_data_custom( $name ) {
+    $data_file = "data/custom/{$name}.json";
+    if ( file_exists( $data_file ) ) {
+        return json_decode( file_get_contents( $data_file ), true );
+    } else {
+        return 'file not found';
+    }
+}
 
 /**
  * Adds js that will later be printed.

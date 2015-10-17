@@ -1,0 +1,77 @@
+#network-graph {
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    width: 100%;
+    max-width: 700px;
+    position: relative;
+    padding: 20px;
+}
+
+#network-graph .title {
+    @include justify-content( flex-start );
+
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-left: $size__network-graph-label;
+}
+
+#network-graph .label {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    width: $size__network-graph-label;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    justify-content: flex-end;
+}
+
+#network-graph .bar {
+    font-size: 0.8em;
+    line-height: 1;
+    text-transform: uppercase;
+    width: 100%;
+    height: 40px;
+    margin-left: $size__network-graph-label;
+    background: repeating-linear-gradient( to right, #ddd, #ddd 1px, #fff 1px, #fff 5% );
+
+    &:after {
+        content: "";
+        display: block;
+        background-color: #3d9970;
+        width: 50px;
+        margin-bottom: 10px;
+        height: 90%;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+    }
+
+    &:hover,
+    &:focus {
+        &:after {
+            background-color: #aaa;
+        }
+    }
+}
+
+@for $i from 1 through 100 {
+    #network-graph .percentage-#{$i} {
+        &:after {
+            $value: ($i * 1%);
+            width: $value;
+        }
+    }
+}
+
+#network-graph {
+    height: 500px;
+    font-family: "fira-sans-2",sans-serif;
+    color: #333;
+}

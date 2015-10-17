@@ -29,6 +29,8 @@ require_once 'src/php/core/include-component.php';
 
                 <?php include_component( 'equipment' ); ?>
 
+                <?php include_component( 'network' ); ?>
+
                 <?php include_component( 'about-persons' ); ?>
 
                 <?php include_component( 'contact' ); ?>
