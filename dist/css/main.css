@@ -724,9 +724,11 @@ button.color-darkgreen:hover, .button.color-darkgreen:hover {
 }
 
 #network-graph {
+  display: -webkit-flex;
   display: flex;
-  background-color: white;
+  -webkit-flex-direction: column;
   flex-direction: column;
+  background-color: white;
   width: 100%;
   max-width: 700px;
   position: relative;
@@ -744,7 +746,7 @@ button.color-darkgreen:hover, .button.color-darkgreen:hover {
 }
 
 #network-graph .label {
-  font-weight: 600;
+  display: -webkit-flex;
   display: flex;
   align-items: center;
   height: 40px;

@@ -15,27 +15,7 @@ $description_data = get_data_global( 'network' );
 
     <div class="container-large">
 
-        <div id="network-graph">
-
-            <div class="title">
-                <span><?php print $description_data['graph-name']; ?></span>
-            </div>
-
-            <div class="bars">
-
-                <?php foreach ( $graph_data as $item ) : extract( $item ); ?>
-
-                    <?php $percent = $value / $max_graph_val * 100; ?>
-
-                    <div class="bar percentage-<?php print round( $percent ); ?>">
-
-                        <span class="label"><?php print $title; ?>: <?php print $value; ?>kb/s</span>
-
-                    </div> <!-- .bar -->
-
-                <?php endforeach; ?>
-
-            </div> <!-- .bars -->
+        <div id="network-graph" class="circle-chart" style="position: relative; height: 500px; width: 500px;" chart-data='<?php print json_encode( $graph_data ); ?>'>
 
         </div> <!-- #network-graph -->
 
