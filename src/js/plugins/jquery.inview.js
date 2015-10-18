@@ -149,13 +149,13 @@
 
 
 jQuery(document).ready(function($) {
-    $( '*[add-animated]' ).each(function() {
+    $( '*[add-visible]' ).each(function() {
 
         $( this ).bind( 'inview', function( event, isInView, visiblePartX, visiblePartY ) {
 
             if ( visiblePartY == 'both' ) {
 
-                $( this ).addClass( $( this ).attr( 'add-animated' ).length ? $( this ).attr( 'add-animated' ) : 'animated' );
+                $( this ).addClass( $( this ).attr( 'add-visible' ).length ? $( this ).attr( 'add-visible' ) : 'visible' );
 
                 $( this ).unbind( 'inview' );
             }
