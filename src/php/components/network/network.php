@@ -27,7 +27,11 @@ foreach ( $graph_data as $item ) {
 
     <div class="container-large">
 
-        <div id="network-graph" style="position: relative; height: 500px; width: 500px;" chart-data='<?php print json_encode( $graph_data ); ?>' add-visible></div> <!-- #network-graph -->
+        <div class="align-network-center">
+
+            <div id="network-graph" style="position: relative; height: 500px; width: 500px;" chart-data='<?php print json_encode( $graph_data ); ?>' add-visible></div> <!-- #network-graph -->
+
+        </div> <!-- .align-center-singular -->
 
         <div id="network-description">
 

@@ -2,7 +2,7 @@
 $data = get_data_type( 'equipment-category' );
 ?>
 
-<section id="equipment" class="page-section" add-animated>
+<section id="equipment" class="page-section" add-visible>
 
     <section id="equipment-categories">
 

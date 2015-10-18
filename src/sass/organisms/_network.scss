@@ -3,22 +3,26 @@
 }
 
 #network-graph-section .container-large {
-    @include display-flex;
-    @include flex-wrap( wrap);
 
 }
 
 #network-description {
 
-    @include flex( 1 $size__content-column-2 );
-
     color: $color__text-light;
+
+    width: 45%;
+
+    float: right;
 }
 
 #network-graph {
-    @include flex( 1 $size__content-column-2 );
+
     font-family: "fira-sans-2",sans-serif;
     color: #333;
+
+    width: 45%;
+
+    float: left;
 }
 
 #network-graph {
@@ -28,4 +32,19 @@
     &.visible { opacity: 1; }
 
     color: $color__text-light;
+}
+
+@media screen and (max-width: #{ $size__min-content-column-2 / .4 }  ) {
+    #network-graph, #network-description {
+        float: left;
+        width: 100%;
+    }
+
+    #network-graph-section .align-network-center {
+        width: 100%;
+        
+        @include display-flex;
+        @include flex-direction( row );
+        @include justify-content( center );
+    }
 }

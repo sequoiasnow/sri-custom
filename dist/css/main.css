@@ -30,6 +30,8 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "PT Sans", sans-serif;
   font-size: 64px;
   font-weight: 100;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 a {
@@ -727,24 +729,17 @@ button.color-darkgreen:hover, .button.color-darkgreen:hover {
   background-color: #171B1E;
 }
 
-#network-graph-section .container-large {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-
 #network-description {
-  -webkit-flex: 1 500px;
-  flex: 1 500px;
   color: white;
+  width: 45%;
+  float: right;
 }
 
 #network-graph {
-  -webkit-flex: 1 500px;
-  flex: 1 500px;
   font-family: "fira-sans-2",sans-serif;
   color: #333;
+  width: 45%;
+  float: left;
 }
 
 #network-graph {
@@ -760,6 +755,22 @@ button.color-darkgreen:hover, .button.color-darkgreen:hover {
   opacity: 1;
 }
 
+@media screen and (max-width: 1000px) {
+  #network-graph, #network-description {
+    float: left;
+    width: 100%;
+  }
+
+  #network-graph-section .align-network-center {
+    width: 100%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: center;
+    justify-content: center;
+  }
+}
 .page-section {
   width: 100%;
 }
