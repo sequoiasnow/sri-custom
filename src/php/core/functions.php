@@ -12,7 +12,8 @@ function __( $stirng = '' ) {
  * Prints a string as rendered in markdown.
  */
 function __m( $string = '' ) {
-    return (new Parsedown)->text( $string );
+    $parsedown = new Parsedown();
+    return $parsedown->text( $string );
 }
 
 /**
