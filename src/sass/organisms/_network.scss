@@ -27,9 +27,6 @@
 
 #network-graph {
     @include transition( all 1.3s );
-    @include opacity(0);
-
-    &.visible { opacity: 1; }
 
     color: $color__text-light;
 }
@@ -42,7 +39,7 @@
 
     #network-graph-section .align-network-center {
         width: 100%;
-        
+
         @include display-flex;
         @include flex-direction( row );
         @include justify-content( center );
